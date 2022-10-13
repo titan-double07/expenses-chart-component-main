@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
 
-*,*::after,*::before {
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -54,32 +54,38 @@ main {
 main h2 {
   padding-bottom: 2em;
 }
-.grid{
-  height:40vh;
+.grid {
+  height: 40vh;
 }
-.price{
-  display: inline-block;
+
+.grid > .flex-col:hover::before {
+  content: attr(data-box);
+  background-color: var(--txt-clr);
+  color: white;
+  position: relative;
+  top: -0.8em;
+  /* left: 0; */
   width: 90%;
+  display: block;
   font-weight: bold;
-  font-size: 18px;
-  padding: .5em;
+  font-size: 15px;
+  padding: 0.5em;
   border-radius: 0.2em;
   margin-bottom: 0.8em;
-  transition: display 1s ease;
-
+  white-space: nowrap;
 }
-.bar{
+
+.bar {
   width: 70%;
   border-radius: 0.2em;
   margin-bottom: 0.8em;
   transform: translatey(0);
-  transition: all .8s ease;
+  transition: all 0.8s ease;
 }
-.bar:hover{
+.bar:hover {
   opacity: 0.6;
-  transform: translatey(-.5em)
+  transform: translatey(-0.5em);
 }
-
 
 .hr {
   border-bottom: 2px solid var(--clr-cream);
@@ -92,25 +98,21 @@ main h2 {
   text-align: end;
 }
 
-.text p{
+.text p {
   opacity: 0.6;
 }
 
-@media (min-width:1024px)   {
+@media (min-width: 1024px) {
   .container {
     width: 40%;
     font-size: 20px;
   }
-   
-  header{
+
+  header {
     padding: 1.5em;
   }
 
- main{
-  padding: 1.5em 1.8em;
- }
-  
- 
-  
-
+  main {
+    padding: 1.5em 1.8em;
+  }
 }

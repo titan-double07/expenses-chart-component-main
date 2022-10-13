@@ -30,10 +30,6 @@ const data = [
   }
 ]
 
-//Created elements
-const price = document.createElement('div')
-price.classList.add('price', 'bg-dark')
-
 // //////////
 const head = document.querySelector('head')
 const bars = document.querySelectorAll('.bar')
@@ -41,26 +37,17 @@ const bars = document.querySelectorAll('.bar')
 window.addEventListener('DOMContentLoaded',animate);
 for (const bar of bars) {
   bar.addEventListener('mouseover',showPrice)
-  bar.addEventListener('mouseout',hidePrice)
 }
 
 function showPrice(e){
   const curr= e.currentTarget;
   const parent=curr.parentElement
-  
   // hover price
   for (let i = 0; i < bars.length; i++) {
     if(parent.innerText===data[i].day)
-    price.innerText=`$${data[i].amount}`
+    parent.dataset.box=`$ ${data[i].amount}`
   }
-  // 
-  parent.prepend(price)
-  price.classList.remove('hidden')
-  
-}
-function hidePrice(e) {
-  const curr= e.currentTarget
-  price.classList.add('hidden')
+  //  
 }
 
 function animate() {
